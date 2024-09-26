@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, jsonify
 from flask_cors import CORS
 import os
 
@@ -27,7 +27,14 @@ def upload_file():
     
 @app.route('/listImages', methods=['GET'])
 def list_images():
-
+    try:
+        files = os.listdir(app.config['UPLOAD_FOLDER'])
+        #Filtrar solo las imagenes
+        if not files:
+            return jsonify({"message":"No hay imagenes en la carpeta."}),404
+        return jsonify({"imagenes":files}),200
+    except Exception as e:
+        return jsonify({"message":str(e)}), 500
 
 
 if __name__ == '__main__':
