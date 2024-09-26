@@ -27,7 +27,7 @@ pip3 install -r "$SETUP_FILENAME"
 
 nohup python3 "$PROGRAM_NAME" &
 
-(crontab -l ; echo "@reboot cd $CLONE_DIR cd $PROGRAM_DIR && nohup python3 $PROGRAM_NAME &") | crontab -
+(crontab -l ; echo "@reboot cd $CLONE_DIR && cd $PROGRAM_DIR && nohup python3 $PROGRAM_NAME &") | crontab -
 #EL script debe tener permisos de ejecucion, para esto escribir chmod -x <nombre_script>
 #Ejecutar el script con ./<nombre_script>.sh
 
