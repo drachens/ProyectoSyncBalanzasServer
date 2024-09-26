@@ -31,7 +31,7 @@ def list_images():
         files = os.listdir(app.config['UPLOAD_FOLDER'])
         #Filtrar solo las imagenes
         if not files:
-            return jsonify({"message":"No hay imagenes en la carpeta."}),200
+            return jsonify({"message":"No hay imagenes en la carpeta."}),403
         return jsonify({"imagenes":files}),200
     except Exception as e:
         return jsonify({"message":str(e)}), 500
