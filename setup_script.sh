@@ -15,6 +15,8 @@ if [-d "$CLONE_DIR $PROGRAM_DIR"]; then
     rm -rf "$CLONE_DIR $PROGRAM_DIR"
 fi 
 
+mkdir -p "$CLONE_DIR"
+
 cd "$CLONE_DIR"
 
 git clone -b server "$REPO_URL" 
@@ -26,7 +28,8 @@ pip3 install -r "$SETUP_FILENAME"
 nohup python3 "$PROGRAM_NAME" &
 
 (crontab -l ; echo "@reboot cd $CLONE_DIR cd $PROGRAM_DIR && nohup python3 $PROGRAM_NAME &") | crontab -
-
+#EL script debe tener permisos de ejecucion, para esto escribir chmod -x <nombre_script>
+#Ejecutar el script con ./<nombre_script>.sh
 
 
 
