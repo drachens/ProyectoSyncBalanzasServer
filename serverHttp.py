@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 CORS(app)
-UPLOAD_FOLDER = "/usr/lib/balance-app-mainland/.dart_tool/productImages"
+UPLOAD_FOLDER = "/usr/lib/balance-app/.dart_tool/productImages"
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 1024*1024*3
